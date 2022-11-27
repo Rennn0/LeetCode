@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 
 int arrangeCoins(int n) {
 		long long int i=1;
