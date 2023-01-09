@@ -1,0 +1,43 @@
+// theres a better approach also
+// but ill go for this dummie
+
+int pivotIndex(vector<int>& nums) {
+  size_t t=0, last=nums.size()-1; // for indexing through array
+  
+  long long left{},right{}; // sum from left and right
+  
+  for( ;t<=last;t++){
+    if(t==0)
+    { // first edge case 
+      for(size_t z=1;z<=last;z++){
+        right+=nums[z];
+      }
+      if(right==0) return 0; // if so we done
+      else right=0; // else refresh value
+    }
+    else if(t==last) //second edge case
+    {
+      for(size_t z=0;z<last;z++){ // except last member
+        left+=nums[z];
+      }
+      if(left==0) return last; //same logic here
+      else left=0;
+    }
+    else // for middle members
+    {
+      for(size_t z=0;z<t;z++){ // left sum
+        left+=nums[z];
+      }
+      
+      for(size_t w=t+1;w<=last;w++){ //right sum
+        right+=nums[w];
+      }
+      
+      if(left==right) return t; //if equal then we good
+      else left=right=0; // else refresh both counter
+    }
+  }
+  
+  return -1; // if loop unseccessful then return -1
+  
+}
