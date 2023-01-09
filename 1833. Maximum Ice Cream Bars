@@ -1,0 +1,11 @@
+    int maxIceCream(vector<int>& costs, int coins) {
+        	int total{}, // counts total ice creams
+            i{} ; // for indexing in vector
+	sort(costs.begin(), costs.end()); // sort, then count from beggining
+	while (coins > 0 && i<costs.size()) { // index shouldnt overflow
+		coins -= costs[i++]; // decrease coins emount each time
+		if (coins >= 0) //if its non negative increase total
+			++total;
+	}
+	return total;
+    }
