@@ -1,0 +1,18 @@
+
+int searchInsert(vector<int>& nums, int target) { // first i do binary search algo
+        int left=0, right=nums.size()-1, mid;
+        while(left<=right){
+            mid=left+(right-left)/2;
+            if(nums[mid]==target)
+                return mid;
+            else if(nums[mid]<target)
+                left=mid+1;
+            else 
+                right=mid-1;
+        }
+        // then where ends mid index i compare that vector's value to the one that be inserted
+        if(nums[mid]>target) // if existing is bigger means new should  take its index
+          return mid;
+        else // otherwise new comes as next 
+          return  mid+1;
+    }
