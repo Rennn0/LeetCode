@@ -1,0 +1,13 @@
+    vector<int> findDisappearedNumbers(vector<int>& nums)
+{
+    vector<int>ans={};
+    int n=nums.size();
+    vector<int>tmp(n+1,0);
+    
+    for(size_t t=0;t<n;++t)
+        tmp[nums[t]]++;
+
+    for(size_t t=1;t<=n;++t)
+        if(tmp[t]==0)ans.push_back(t);
+    return ans;
+}
