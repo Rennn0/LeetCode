@@ -1,0 +1,10 @@
+vector<int> runningSum(vector<int>& nums) {
+  int z=nums[0]; // first element of given array
+  vector<int>answer{}; // must be added as first to result
+  answer.push_back(z); // then add each next element as sum to z variable
+  for(size_t t=1;t<nums.size();t++){ // loop for array
+    z+=nums[t];
+    answer.push_back(z);
+  }
+  return answer;
+}
