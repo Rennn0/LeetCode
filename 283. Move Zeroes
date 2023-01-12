@@ -1,0 +1,11 @@
+void moveZeroes(vector<int>& nums) {
+    int nonZeroIndex = 0;
+    for (int i = 0; i < nums.size(); i++) { // find non zero numbers and place at beggining
+        if (nums[i] != 0) {
+            nums[nonZeroIndex++] = nums[i];
+        }
+    }
+    for (int i = nonZeroIndex; i < nums.size(); i++) { // replace remaining elements with 0
+        nums[i] = 0;
+    }
+}
