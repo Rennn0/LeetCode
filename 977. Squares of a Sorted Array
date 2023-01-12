@@ -1,0 +1,9 @@
+std::vector<int> sortedSquares(std::vector<int>& nums) {
+    std::vector<int>temp=nums;temp;
+    for(int a=0;a<temp.size();++a) // first replace values by their squred value
+    {
+        temp[a]*=temp[a];
+    }
+    sort(temp.begin(),temp.end()); // then sort 
+    return temp;
+}
