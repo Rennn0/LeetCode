@@ -1,0 +1,15 @@
+void rotate(std::vector<int>& nums, int k) {
+    k %= nums.size(); // avoid multiplication
+
+    std::vector<int>copy = nums; // create copy and insert from here
+ 
+    int index = nums.size() - 1; // last index 
+
+    for (size_t t = 0; t < index + 1; t++) // little tricks
+    {
+        if (t + k <= index)
+            nums[t + k] = copy[t];
+        else
+            nums[k-1-index+t] = copy[t];
+    }
+}
