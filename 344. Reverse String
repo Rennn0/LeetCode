@@ -1,0 +1,6 @@
+    void reverseString(std::vector<char>& s) {
+        std::vector<char>copy=s;
+        int last=s.size()-1;
+        for(int a=0, b=last;a<=last;a++,b--)
+            s[b]=copy[a];
+    }
