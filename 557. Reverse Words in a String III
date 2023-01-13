@@ -1,0 +1,19 @@
+    std::string reverseWords(std::string& ss) {
+        std::string s=ss; // copy 
+        int left=0,right=0; // indexing each word
+        while(left<s.length()) // undtill end reached
+        {
+            while(s[left+right]!=' '&& right+left<s.length()) right++;
+            right--; right+=left; // find right index for each word
+            
+            while(left<right) // then keep swapping 
+            {
+                iter_swap(s.begin()+left,s.begin()+right);
+                left++, right--;
+            }
+            while(s[left]!=' '&& left<s.length())left++; 
+            left++, right=0; // find next left index and set right to zero
+            
+        }
+        return s;
+    }
